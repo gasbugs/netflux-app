@@ -13,7 +13,6 @@ phases:
       - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin "$ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com"
   build:
     commands:
-      - go build -o main main.go          # 'main'이라는 이름으로 바이너리 빌드
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
